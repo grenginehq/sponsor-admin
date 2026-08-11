@@ -1,0 +1,41 @@
+//fonts
+export const Inter = "Inter";
+export const InstrumentSans = "Instrument Sans";
+export const background = "#FDFDFD";
+
+//colors
+export const primary = "#5c247f";
+export const white = "#ffffff";
+export const secondary01 = "#e2e2e2";
+export const secondary02 = "#7a7add";
+export const secondary03 = "#e2cfea";
+export const secondary04 = "#00000066";
+export const secondary05 = "#f2f2f7";
+export const secondary06 = "#dadafe";
+export const secondary07 = "rgba(205, 205, 205, 0.4)";
+export const secondary08 = "#f0ba00";
+export const secondary09 = "#00000080";
+export const secondary10 = "#f3c633";
+export const secondary11 = "rgba(246, 211, 102, 0.5)";
+export const secondary12 = "rgba(234, 234, 234, 0.7)";
+export const secondary13 = "#cdcdcd66";
+export const secondary14 = "#e0e0e0";
+export const secondary15 = "#262626";
+export const secondary16 = "#e2e2e2";
+export const secondary17 = "rgba(221, 221, 221, 0.87)";
+export const secondary18 = "EAECF0";
+export const secondary19 = "rgba(226, 207, 234, 0.50)";
+export const red = "#ff0000";
+export const gray = "#b4b4b4";
+export const black = "#000";
+export const black02 = "rgba(0, 0, 0, 0.4)";
+export const black03 = "rgba(0, 0, 0, 0.5)";
+export const gradient = "linear-gradient(#ffffff, #dadafe)";
+export const green01 = "rgba(52, 199, 89, 0.20)";
+export const yellow01 = "rgba(255, 204, 0, 0.20)";
+export const red01 = "rgba(255, 0, 0, 0.20)";
+export const green02 = "#219653";
+export const green03 = "#00B69B";
+export const yellow02 = "#F0BA00";
+export const red02 = "#FF3B30";
+export const red03 = "#F93C65";
