@@ -1,9 +1,16 @@
 "use client";
 
-import { Control, useController } from "react-hook-form";
-import { IconNames } from "../../types/icon";
+import { useController } from "react-hook-form";
+import type { Control } from "react-hook-form";
+import type { IconNames } from "../../types/icon";
 import { Icon } from "../Icon";
-import { InputContainer, InputError, InputLabel, StyledInput } from "./styles";
+import {
+  InputContainer,
+  InputError,
+  InputLabel,
+  InputWrapper,
+  StyledInput,
+} from "./styles";
 
 interface InputProps {
   label?: string;
@@ -67,7 +74,7 @@ export const Input = ({
   };
 
   return (
-    <>
+    <InputWrapper>
       <InputLabel htmlFor={name}>{label}</InputLabel>
       <InputContainer>
         {icon && <Icon icon={icon} />}
@@ -91,6 +98,6 @@ export const Input = ({
         />
       </InputContainer>
       {error && <InputError>{error?.message}</InputError>}
-    </>
+    </InputWrapper>
   );
 };

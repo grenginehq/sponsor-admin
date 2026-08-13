@@ -1,10 +1,17 @@
 import styled from "@emotion/styled";
 import {
   black,
+  InstrumentSans,
   red,
   secondary01,
   secondary12,
 } from "../../styles/abstracts/colors";
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
 
 export const InputContainer = styled.div`
   transition: all 0.3s ease-in-out;
@@ -18,7 +25,7 @@ export const InputContainer = styled.div`
   background: ${secondary12};
 `;
 
-export const StyledInput = styled.div`
+export const StyledInput = styled.input`
   width: 100%;
   border: none;
   background-color: transparent;
@@ -29,7 +36,6 @@ export const StyledInput = styled.div`
   letter-spacing: 1.68px;
   vertical-align: middle;
   color: ${black};
-  font-family: var(--font-inter);
 
   &::placeholder {
     color: ${black};
@@ -44,12 +50,12 @@ export const StyledInput = styled.div`
 
 export const InputLabel = styled.label`
   color: ${black};
-  font-family: var(--font-instrument-sans);
+  font-family: ${InstrumentSans};
   line-height: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 24px;
+  font-size: 18px;
   font-style: regular;
   font-weight: 400;
 `;

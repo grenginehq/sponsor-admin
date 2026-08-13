@@ -7,6 +7,7 @@ import { AgGridProvider } from "ag-grid-react";
 import { Payments } from "./pages/payments";
 import { Users } from "./pages/users";
 import { Events } from "./pages/events";
+import { Categories } from "./pages/categories";
 
 const modules = [AllCommunityModule];
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/payments" element={<Payments />} />
         <Route path="/users" element={<Users />} />
         <Route path="/sponsor-events" element={<Events />} />
+        <Route path="/sponsor-categories" element={<Categories />} />
       </Routes>
     </AgGridProvider>
   );

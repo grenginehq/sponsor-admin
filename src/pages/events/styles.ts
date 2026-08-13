@@ -57,3 +57,11 @@ export const EventsGrid = styled.div`
   gap: 16px;
   width: 100%;
 `;
+
+export const EventsPagination = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 132px;
+`;

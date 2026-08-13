@@ -78,4 +78,39 @@ export const icons: Record<IconNames, string> = {
 <path d="M29.1591 31.333C36.3244 31.333 42.2115 34.3905 42.6503 40.9326C42.6677 41.1932 42.6502 41.9998 41.5262 42H16.8036C16.4283 42 15.6841 41.2783 15.7157 40.9316C16.296 34.5683 22.0931 31.333 29.1591 31.333ZM42.0575 34.002C47.155 34.052 51.3175 36.3475 51.6307 41.2002C51.6433 41.3959 51.6299 42 50.8182 42H45.0477V41.999C45.0476 38.9987 43.9349 36.2299 42.0575 34.002Z" fill="#8280FF"/>
 </svg>
 `,
+  edit: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.4487 6.95143L17.0487 10.5514M4.44873 19.5514L8.81472 18.6717C9.04649 18.625 9.25931 18.5109 9.42645 18.3437L19.2001 8.56461C19.6687 8.09576 19.6684 7.33577 19.1994 6.86731L17.129 4.79923C16.6602 4.33097 15.9006 4.33129 15.4322 4.79995L5.65749 14.58C5.49068 14.7469 5.37678 14.9593 5.33003 15.1906L4.44873 19.5514Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`,
+  delete: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 6.17647H20M9 3H15M10 16.7647V10.4118M14 16.7647V10.4118M15.5 21H8.5C7.39543 21 6.5 20.0519 6.5 18.8824L6.0434 7.27937C6.01973 6.67783 6.47392 6.17647 7.04253 6.17647H16.9575C17.5261 6.17647 17.9803 6.67783 17.9566 7.27937L17.5 18.8824C17.5 20.0519 16.6046 21 15.5 21Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`,
+  imageUpload: `<svg width="146" height="135" viewBox="0 0 146 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="8.56234" y="15.0907" width="116.511" height="97.926"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(6.53px);clip-path:url(#bgblur_0_871_599_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="13.0567" x="21.6191" y="28.1475" width="90.3972" height="71.812" rx="19.5851" fill="#5C247F"/>
+<foreignObject x="21.619" y="34.6757" width="116.511" height="97.926"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(6.53px);clip-path:url(#bgblur_1_871_599_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="13.0567" x="34.9817" y="48.0384" width="89.7853" height="71.2002" rx="19.2792" fill="#BFB5FF" fill-opacity="0.6" stroke="url(#paint0_linear_871_599)" stroke-width="0.611895"/>
+<path d="M107.116 113.016L52.677 113.016C48.1496 113.016 45.8859 113.016 44.9057 111.767C44.6559 111.449 44.4674 111.087 44.3499 110.699C43.8889 109.18 45.1871 107.326 47.7833 103.617L59.8244 86.4153C61.5862 83.8985 62.4671 82.6401 63.6998 82.3627C64.0216 82.2902 64.3525 82.267 64.6813 82.2937C65.9407 82.3962 66.9888 83.5192 69.085 85.7651L82.1878 99.8038C84.1656 101.923 85.1545 102.982 86.3615 103.113C86.6776 103.147 86.997 103.135 87.3096 103.077C88.5031 102.855 89.4085 101.723 91.2192 99.4596L95.2949 94.3651C97.2354 91.9394 98.2057 90.7265 99.464 90.5333C99.7923 90.4829 100.126 90.4829 100.455 90.5333C101.713 90.7265 102.683 91.9394 104.624 94.3651L111.78 103.311C114.812 107.1 116.327 108.994 115.91 110.582C115.804 110.985 115.622 111.364 115.373 111.698C114.394 113.016 111.968 113.016 107.116 113.016Z" fill="url(#paint1_linear_871_599)" fill-opacity="0.9"/>
+<rect x="60" y="64" width="19.5851" height="19.5851" rx="9.79255" fill="url(#paint2_linear_871_599)" fill-opacity="0.9"/>
+<defs>
+<clipPath id="bgblur_0_871_599_clip_path" transform="translate(-8.56234 -15.0907)"><rect x="21.6191" y="28.1475" width="90.3972" height="71.812" rx="19.5851"/>
+</clipPath><clipPath id="bgblur_1_871_599_clip_path" transform="translate(-21.619 -34.6757)"><rect x="34.9817" y="48.0384" width="89.7853" height="71.2002" rx="19.2792"/>
+</clipPath><linearGradient id="paint0_linear_871_599" x1="28.2188" y1="54.2608" x2="141.962" y2="128.188" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_871_599" x1="56.3268" y1="96.7597" x2="126.827" y2="119.76" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_871_599" x1="59.924" y1="68.471" x2="96.924" y2="92.971" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+`,
+  close: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.5378 4.4096C15.8641 4.73422 15.8654 5.26185 15.5408 5.5881L11.1756 9.9752L15.5908 14.4125C15.9154 14.7388 15.9141 15.2664 15.5878 15.591C15.2615 15.9157 14.7339 15.9143 14.4093 15.5881L10 11.1567L5.59075 15.5881C5.26613 15.9143 4.73849 15.9157 4.41224 15.591C4.08599 15.2664 4.08467 14.7388 4.40929 14.4125L8.82445 9.9752L4.45927 5.58811C4.13465 5.26186 4.13597 4.73422 4.46223 4.4096C4.78848 4.08498 5.31611 4.0863 5.64073 4.41255L10 8.79373L14.3593 4.41255C14.6839 4.0863 15.2116 4.08498 15.5378 4.4096Z" fill="black"/>
+</svg>
+`,
 };

@@ -28,6 +28,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <StyledButton
+      variant={variant}
       role="button"
       type={type}
       onClick={(e) => {

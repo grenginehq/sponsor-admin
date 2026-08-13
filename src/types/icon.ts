@@ -10,4 +10,8 @@ export type IconNames =
   | "up"
   | "down"
   | "totalSponsorEvents"
-  | "totalUsers";
+  | "totalUsers"
+  | "edit"
+  | "delete"
+  | "imageUpload"
+  | "close";

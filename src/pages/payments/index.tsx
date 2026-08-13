@@ -1,5 +1,7 @@
 import { AgGridReact } from "ag-grid-react";
 import { useMemo } from "react";
+import * as XLSX from "xlsx";
+
 import { Button } from "../../components/Button";
 import { Pill } from "../../components/Pill";
 import { Sidebar } from "../../components/Sidebar";
@@ -36,6 +38,26 @@ export function Payments() {
       { field: "date", flex: 1 },
     ];
   }, []);
+
+  const handleExport = () => {
+    const exportData = payments.map((payment) => ({
+      Name: payment.name,
+      Email: payment.email,
+      Amount: payment.amount,
+      Currency: payment.currency,
+      Status: payment.status,
+      Date: payment.date,
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(exportData);
+
+    const workbook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Payments");
+
+    XLSX.writeFile(workbook, "payments.xlsx");
+  };
+
   return (
     <StyledPayments>
       <Sidebar />
@@ -52,6 +74,7 @@ export function Payments() {
             icon="download"
             variant="primary"
             label="Export All"
+            handleClick={handleExport}
           />
         </PaymentsButton>
         <AgGridReact

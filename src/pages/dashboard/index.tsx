@@ -1,5 +1,7 @@
 import { AgGridReact } from "ag-grid-react";
 import { useMemo } from "react";
+import * as XLSX from "xlsx";
+
 import {
   Area,
   AreaChart,
@@ -39,6 +41,26 @@ export function Dashboard() {
   }, []);
 
   const topSponsors = useMemo(() => users?.slice(0, 5), [users]);
+
+  const handleExport = () => {
+    const exportData = topSponsors.map((user) => ({
+      Name: user.name,
+      Email: user.email,
+      Amount: user.amount,
+      Currency: user.currency,
+      Status: user.status,
+      Date: user.date,
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(exportData);
+
+    const workbook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sponsors");
+
+    XLSX.writeFile(workbook, "top_sponsors.xlsx");
+  };
+
   return (
     <StyledDashboard>
       <Sidebar />
@@ -139,6 +161,7 @@ export function Dashboard() {
             icon="download"
             variant="primary"
             label="Export All"
+            handleClick={handleExport}
           />
         </DashboardSponsors>
         <AgGridReact

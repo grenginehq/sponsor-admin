@@ -12,12 +12,15 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@uidotdev/usehooks": "^2.4.1",
     "ag-grid-react": "^36.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.84.0",
     "react-router-dom": "^7.18.2",
-    "recharts": "^3.10.1"
+    "react-select-async-paginate": "^0.7.11",
+    "recharts": "^3.10.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

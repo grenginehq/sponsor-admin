@@ -1,5 +1,5 @@
 import type { Route } from "../types/component";
-import foodBankImage from "../assets/images/foodbank.jpg"
+import foodBankImage from "../assets/images/foodbank.jpg";
 
 export const routes: Route[] = [
   {
@@ -11,6 +11,11 @@ export const routes: Route[] = [
     text: "Payments",
     path: "/payments",
     icon: "payments",
+  },
+  {
+    text: "Sponsor Categories",
+    path: "/sponsor-categories",
+    icon: "dashboard",
   },
   {
     text: "Sponsor Events",
@@ -197,4 +202,12 @@ export const events: Event[] = [
     totalReceived: 7500,
     currency: "GBP",
   },
+];
+
+export const categories = [
+  "Medical",
+  "Burial",
+  "Banquet",
+  "Naming Ceremony",
+  "Cycle Marathon",
 ];

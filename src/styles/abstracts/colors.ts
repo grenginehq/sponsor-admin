@@ -27,6 +27,7 @@ export const secondary18 = "EAECF0";
 export const secondary19 = "rgba(226, 207, 234, 0.50)";
 export const red = "#ff0000";
 export const gray = "#b4b4b4";
+export const gray02 = "#ddd";
 export const black = "#000";
 export const black02 = "rgba(0, 0, 0, 0.4)";
 export const black03 = "rgba(0, 0, 0, 0.5)";

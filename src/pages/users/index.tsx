@@ -1,5 +1,7 @@
 import { AgGridReact } from "ag-grid-react";
 import { useMemo } from "react";
+import * as XLSX from "xlsx";
+
 import { Button } from "../../components/Button";
 import { Sidebar } from "../../components/Sidebar";
 import { users } from "../../constants";
@@ -24,6 +26,26 @@ export function Users() {
       { field: "mobileNumber", flex: 1 },
     ];
   }, []);
+
+  const handleExport = () => {
+    const exportData = users.map((user) => ({
+      Name: user.name,
+      Email: user.email,
+      Amount: user.amount,
+      Currency: user.currency,
+      Status: user.status,
+      Date: user.date,
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(exportData);
+
+    const workbook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Users");
+
+    XLSX.writeFile(workbook, "users.xlsx");
+  };
+
   return (
     <StyledUsers>
       <Sidebar />
@@ -38,6 +60,7 @@ export function Users() {
             icon="download"
             variant="primary"
             label="Export All"
+            handleClick={handleExport}
           />
         </UsersButton>
         <AgGridReact
