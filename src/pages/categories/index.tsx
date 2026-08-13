@@ -4,6 +4,8 @@ import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 import SponsorCategoryCard from "../../components/SponsorCategoryCard";
 import { categories } from "../../constants";
+import AddCategoryModal from "./AddCategoryModal";
+import EditCategoryModal from "./EditCategoryModal";
 import {
   CategoriesButton,
   CategoriesDescription,
@@ -17,11 +19,18 @@ import {
 
 const ITEMS_PER_PAGE = 5;
 export function Categories() {
+  const [toggleCategoryModal, setToggleCategoryModal] = useState(false);
+  const [toggleEditCategoryModal, setToggleEditCategoryModal] = useState(false);
+
   const [currentPage, setCurrentPage] = useState(1);
   const paginatedCategories = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     return categories.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [categories, currentPage, ITEMS_PER_PAGE]);
+
+  const handleOpenEdit = () => {
+    setToggleEditCategoryModal(!toggleEditCategoryModal)
+  }
 
   return (
     <StyledCategories>
@@ -38,14 +47,17 @@ export function Categories() {
             type="button"
             variant="primary"
             label="Add Sponsor Category"
+            handleClick={() => setToggleCategoryModal(!toggleCategoryModal)}
           />
         </CategoriesButton>
         <CategoriesGrid>
           {paginatedCategories?.map((category, index) => {
             return (
               <SponsorCategoryCard
-                key={`event_${index + 1}`}
+                key={`Category_${index + 1}`}
                 category={category}
+                handleOpenEdit={handleOpenEdit}
+
               />
             );
           })}
@@ -61,6 +73,13 @@ export function Categories() {
           />
         </CategoriesPagination>
       </CategoriesMainContent>
+      <AddCategoryModal
+        toggleModal={toggleCategoryModal}
+        setToggleModal={setToggleCategoryModal}
+      />
+      <EditCategoryModal
+        toggleModal={toggleEditCategoryModal}
+        setToggleModal={setToggleEditCategoryModal} />
     </StyledCategories>
   );
 }
