@@ -1,3 +1,4 @@
+import type { Category } from "../../types/category";
 import { Icon } from "../Icon";
 import {
   SponsorCategoryCardButtons,
@@ -6,16 +7,25 @@ import {
 } from "./styles";
 
 interface SponsorCategoryCardProps {
-  category: string;
+  category: Category;
   handleOpenEdit: () => void;
+  handleOpenDelete: () => void;
 }
-const SponsorCategoryCard = ({ category, handleOpenEdit }: SponsorCategoryCardProps) => {
+const SponsorCategoryCard = ({
+  category,
+  handleOpenEdit,
+  handleOpenDelete,
+}: SponsorCategoryCardProps) => {
   return (
     <StyledSponsorCategoryCard>
-      <SponsorCategoryCardName>{category}</SponsorCategoryCardName>
+      <SponsorCategoryCardName>{category?.name}</SponsorCategoryCardName>
       <SponsorCategoryCardButtons>
-        <button type="button" onClick={handleOpenEdit}><Icon icon="edit" /></button>
-        <Icon icon="delete" />
+        <button type="button" onClick={handleOpenEdit}>
+          <Icon icon="edit" />
+        </button>
+        <button type="button" onClick={handleOpenDelete}>
+          <Icon icon="delete" />
+        </button>
       </SponsorCategoryCardButtons>
     </StyledSponsorCategoryCard>
   );

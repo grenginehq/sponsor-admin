@@ -33,7 +33,6 @@ export const StyledInput = styled.input`
   font-style: medium;
   font-size: 14.1px;
   line-height: 20.02px;
-  letter-spacing: 1.68px;
   vertical-align: middle;
   color: ${black};
 

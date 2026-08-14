@@ -7,5 +7,5 @@ export type Route = {
 };
 
 export type ButtonType = "submit" | "reset" | "button";
-export type ButtonVariant = "primary" | "secondary";
+export type ButtonVariant = "primary" | "secondary" | "danger";
 export type PillVariant = "success" | "pending" | "failed";

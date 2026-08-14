@@ -4,7 +4,9 @@ import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 import SponsorCategoryCard from "../../components/SponsorCategoryCard";
 import { categories } from "../../constants";
+import type { Category } from "../../types/category";
 import AddCategoryModal from "./AddCategoryModal";
+import DeleteCategoryModal from "./DeleteCategoryModal";
 import EditCategoryModal from "./EditCategoryModal";
 import {
   CategoriesButton,
@@ -21,6 +23,11 @@ const ITEMS_PER_PAGE = 5;
 export function Categories() {
   const [toggleCategoryModal, setToggleCategoryModal] = useState(false);
   const [toggleEditCategoryModal, setToggleEditCategoryModal] = useState(false);
+  const [toggleDeleteCategoryModal, setToggleDeleteCategoryModal] =
+    useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<
+    Category | undefined
+  >();
 
   const [currentPage, setCurrentPage] = useState(1);
   const paginatedCategories = useMemo(() => {
@@ -28,9 +35,15 @@ export function Categories() {
     return categories.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [categories, currentPage, ITEMS_PER_PAGE]);
 
-  const handleOpenEdit = () => {
-    setToggleEditCategoryModal(!toggleEditCategoryModal)
-  }
+  const handleOpenEdit = (category: Category) => {
+    setToggleEditCategoryModal(!toggleEditCategoryModal);
+    setSelectedCategory(category);
+  };
+
+  const handleOpenDelete = (category: Category) => {
+    setToggleDeleteCategoryModal(!toggleDeleteCategoryModal);
+    setSelectedCategory(category);
+  };
 
   return (
     <StyledCategories>
@@ -56,8 +69,8 @@ export function Categories() {
               <SponsorCategoryCard
                 key={`Category_${index + 1}`}
                 category={category}
-                handleOpenEdit={handleOpenEdit}
-
+                handleOpenEdit={() => handleOpenEdit(category)}
+                handleOpenDelete={() => handleOpenDelete(category)}
               />
             );
           })}
@@ -79,7 +92,14 @@ export function Categories() {
       />
       <EditCategoryModal
         toggleModal={toggleEditCategoryModal}
-        setToggleModal={setToggleEditCategoryModal} />
+        setToggleModal={setToggleEditCategoryModal}
+        category={selectedCategory}
+      />
+      <DeleteCategoryModal
+        toggleModal={toggleDeleteCategoryModal}
+        setToggleModal={setToggleDeleteCategoryModal}
+        category={selectedCategory}
+      />
     </StyledCategories>
   );
 }

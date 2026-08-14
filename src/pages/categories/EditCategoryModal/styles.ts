@@ -48,4 +48,3 @@ export const EditCategoryHeader = styled.div`
   height: 62px;
   border-bottom: 0.8px solid ${gray02};
 `;
-

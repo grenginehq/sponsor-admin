@@ -16,7 +16,10 @@ interface AddCategoryModalProps {
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddCategoryModal = ({ toggleModal, setToggleModal }: AddCategoryModalProps) => {
+const AddCategoryModal = ({
+  toggleModal,
+  setToggleModal,
+}: AddCategoryModalProps) => {
   const { handleSubmit, control } = useForm();
 
   return (
@@ -37,7 +40,7 @@ const AddCategoryModal = ({ toggleModal, setToggleModal }: AddCategoryModalProps
               control={control}
               name="name"
               label="Name"
-            />            
+            />
             <AddCategoryFormButton>
               <Button
                 variant="secondary"

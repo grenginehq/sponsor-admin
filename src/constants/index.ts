@@ -205,9 +205,9 @@ export const events: Event[] = [
 ];
 
 export const categories = [
-  "Medical",
-  "Burial",
-  "Banquet",
-  "Naming Ceremony",
-  "Cycle Marathon",
+  { name: "Medical", id: 1 },
+  { name: "Burial", id: 2 },
+  { name: "Banquet", id: 3 },
+  { name: "Naming Ceremony", id: 4 },
+  { name: "Cycle Marathon", id: 5 },
 ];
