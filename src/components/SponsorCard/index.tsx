@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import type { Event } from "../../types/event";
 import { ProgressBar } from "../ProgressBar";
 import {
@@ -11,18 +10,14 @@ import {
 
 interface SponsorCardProps {
   event: Event;
+  handleOpenViewEvent: () => void;
 }
-export const SponsorCard = ({ event }: SponsorCardProps) => {
-  const navigate = useNavigate();
-
-  const handleNavigation = (category: string) => {
-    navigate.push(`/sponsor/${category}`);
-  };
+export const SponsorCard = ({
+  event,
+  handleOpenViewEvent,
+}: SponsorCardProps) => {
   return (
-    <StyledSponsorCard
-      role="button"
-      onClick={() => handleNavigation(event?.category)}
-    >
+    <StyledSponsorCard role="button" onClick={handleOpenViewEvent}>
       <SponsorCardImage>
         <img alt="sponsor" src={event?.image} />
       </SponsorCardImage>

@@ -14,4 +14,6 @@ export type IconNames =
   | "edit"
   | "delete"
   | "imageUpload"
-  | "close";
+  | "close"
+  | "money"
+  | "calendar";

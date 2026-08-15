@@ -5,8 +5,9 @@ import {
   secondary03,
   white,
 } from "../../styles/abstracts/colors";
+import type { ButtonVariant } from "../../types/component";
 
-export const StyledButton = styled.button<{ variant }>`
+export const StyledButton = styled.button<{ variant: ButtonVariant }>`
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -22,12 +23,14 @@ export const StyledButton = styled.button<{ variant }>`
   width: fit-content;
   height: ${({ variant }) => (variant === "primary" ? "48px" : "58px")};
   gap: 8px;
-  background-color: ${({ variant }) => (variant === "danger" ? red : primary)};
-  color: ${({ variant }) => (variant === "secondary" ? secondary03 : white)};
+  background-color: ${({ variant }) => (variant === "danger" ? red : variant === "outlined" ? "transparent" : primary)};
+  color: ${({ variant }) => (variant === "secondary" ? secondary03 : variant === "outlined" ? primary : white)};
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: ${({ variant }) => (variant === "outlined" ? `1px solid ${primary}` : "none")};
+
   &:hover {
-    border: 1px solid ${primary};
-    color: ${primary};
+    border: ${({ variant }) => (variant === "danger" ? `1px solid ${red}`: variant === "outlined" ? "none" : `1px solid ${primary}`)};
+    color: ${({ variant }) => (variant === "danger" ? red : primary)};
     background-color: transparent;
 
     & svg path {

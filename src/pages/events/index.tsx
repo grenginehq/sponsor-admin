@@ -15,15 +15,38 @@ import {
   EventsPagination,
   StyledEvents,
 } from "./styles";
+import ViewEventModal from "./ViewEventModal";
+import type { Event } from "../../types/event";
+import DeleteEventModal from "./DeleteEventModal";
+import EditEventModal from "./EditEventModal";
 const ITEMS_PER_PAGE = 5;
 export function Events() {
   const [toggleEventModal, setToggleEventModal] = useState(false);
+  const [toggleEditEventModal, setToggleEditEventModal] = useState(false);
+  const [toggleDeleteEventModal, setToggleDeleteEventModal] = useState(false);
+  const [toggleViewEventModal, setToggleViewEventModal] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | undefined>();
 
   const [currentPage, setCurrentPage] = useState(1);
   const paginatedEvents = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     return events.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [events, currentPage, ITEMS_PER_PAGE]);
+
+  const handleOpenEditEvent = () => {
+    setToggleViewEventModal(false);
+    setToggleEditEventModal(!toggleEditEventModal);
+  };
+
+  const handleOpenDeleteEvent = () => {
+    setToggleViewEventModal(false);
+    setToggleDeleteEventModal(!toggleDeleteEventModal);
+  };
+
+  const handleOpenViewEvent = (event: Event) => {
+    setToggleViewEventModal(!toggleViewEventModal);
+    setSelectedEvent(event);
+  };
 
   return (
     <StyledEvents>
@@ -45,7 +68,13 @@ export function Events() {
         </EventsButton>
         <EventsGrid>
           {paginatedEvents?.map((event, index) => {
-            return <SponsorCard key={`event_${index + 1}`} event={event} />;
+            return (
+              <SponsorCard
+                handleOpenViewEvent={() => handleOpenViewEvent(event)}
+                key={`event_${index + 1}`}
+                event={event}
+              />
+            );
           })}
         </EventsGrid>
         <EventsPagination>
@@ -62,6 +91,23 @@ export function Events() {
       <AddEventModal
         toggleModal={toggleEventModal}
         setToggleModal={setToggleEventModal}
+      />
+      <DeleteEventModal
+        toggleModal={toggleDeleteEventModal}
+        setToggleModal={setToggleDeleteEventModal}
+        event={selectedEvent}
+      />
+      <EditEventModal
+        toggleModal={toggleEditEventModal}
+        setToggleModal={setToggleEditEventModal}
+        event={selectedEvent}
+      />
+      <ViewEventModal
+        event={selectedEvent}
+        handleOpenEditEvent={handleOpenEditEvent}
+        handleOpenDeleteEvent={handleOpenDeleteEvent}
+        toggleModal={toggleViewEventModal}
+        setToggleModal={setToggleViewEventModal}
       />
     </StyledEvents>
   );

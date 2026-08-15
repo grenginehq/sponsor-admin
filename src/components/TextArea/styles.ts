@@ -16,7 +16,6 @@ export const TextAreaWrapper = styled.div`
 export const TextAreaContainer = styled.div`
   transition: all 0.3s ease-in-out;
   display: flex;
-  align-items: center;
   width: 100%;
   height: 104px;
   padding: 8px;
@@ -33,7 +32,6 @@ export const StyledTextArea = styled.textarea`
   font-style: medium;
   font-size: 14.1px;
   line-height: 20.02px;
-  letter-spacing: 1.68px;
   vertical-align: middle;
   color: ${black};
 

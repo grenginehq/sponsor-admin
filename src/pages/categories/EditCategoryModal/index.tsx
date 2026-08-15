@@ -22,19 +22,19 @@ interface EditCategoryModalProps {
 const EditCategoryModal = ({
   toggleModal,
   setToggleModal,
-  category
+  category,
 }: EditCategoryModalProps) => {
   const { handleSubmit, control, reset } = useForm({
     defaultValues: {
-      name: category?.name
-    }
+      name: category?.name,
+    },
   });
 
   useEffect(() => {
     reset({
-      name: category?.name
-    })
-  }, [category])
+      name: category?.name,
+    });
+  }, [category]);
 
   return (
     <>
