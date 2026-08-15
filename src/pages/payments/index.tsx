@@ -1,4 +1,5 @@
 import { AgGridReact } from "ag-grid-react";
+import type { ColDef } from "ag-grid-community";
 import { useMemo } from "react";
 import * as XLSX from "xlsx";
 
@@ -6,6 +7,7 @@ import { Button } from "../../components/Button";
 import { Pill } from "../../components/Pill";
 import { Sidebar } from "../../components/Sidebar";
 import { payments } from "../../constants";
+import type { Payment } from "../../types/payment";
 import {
   PaymentsButton,
   PaymentsDescription,
@@ -16,11 +18,11 @@ import {
 } from "./styles";
 
 export function Payments() {
-  const colDefs = useMemo(() => {
+  const colDefs: ColDef<Payment>[]  = useMemo(() => {
     return [
       { field: "name", flex: 1 },
       { field: "email", flex: 1 },
-      { field: "amount", flex: 1 },
+      { field: "totalAmount", flex: 1 },
 
       { field: "currency", flex: 1 },
       {
@@ -31,7 +33,7 @@ export function Payments() {
           alignItems: "center",
           height: "100%",
         },
-        cellRenderer: (props) => (
+        cellRenderer: (props: any) => (
           <Pill variant={props?.value} label={props?.value} />
         ),
       },
@@ -43,7 +45,7 @@ export function Payments() {
     const exportData = payments.map((payment) => ({
       Name: payment.name,
       Email: payment.email,
-      Amount: payment.amount,
+      Amount: payment.totalAmount,
       Currency: payment.currency,
       Status: payment.status,
       Date: payment.date,

@@ -20,7 +20,7 @@ const AddCategoryModal = ({
   toggleModal,
   setToggleModal,
 }: AddCategoryModalProps) => {
-  const { handleSubmit, control } = useForm();
+  const { control } = useForm();
 
   return (
     <>

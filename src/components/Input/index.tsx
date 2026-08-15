@@ -1,7 +1,7 @@
 "use client";
 
 import { useController } from "react-hook-form";
-import type { Control } from "react-hook-form";
+import type { Control , FieldValues, Path } from "react-hook-form";
 import type { IconNames } from "../../types/icon";
 import { Icon } from "../Icon";
 import {
@@ -12,16 +12,16 @@ import {
   StyledInput,
 } from "./styles";
 
-interface InputProps {
+interface InputProps<T extends FieldValues> {
   label?: string;
-  name: string;
+  name: Path<T>;
   placeholder?: string;
   required?: boolean;
   disabled?: boolean;
   icon?: IconNames;
   type: "text" | "email" | "number" | "password" | "search" | "url" | "color";
   size?: "medium" | "large";
-  control: Control<any>;
+  control: Control<T>;
   min?: string;
   autoFocus?: boolean;
   disableSpecialCharFilter?: boolean;
@@ -31,23 +31,20 @@ interface InputProps {
   variant: "outlined" | "filled";
 }
 
-export const Input = ({
+export const Input = <T extends FieldValues>({
   label,
   name,
   placeholder,
-  required,
   type,
   disabled,
   icon,
-  size,
   control,
   min,
   autoFocus,
   autoComplete,
   onChange,
   rules,
-  variant,
-}: InputProps) => {
+}: InputProps<T>) => {
   const { field, fieldState } = useController({ control, name, rules });
   const { error } = fieldState;
 

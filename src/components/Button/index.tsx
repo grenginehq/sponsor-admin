@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { ButtonVariant, ButtonType } from "../../types/component";
 import { Icon } from "../Icon";
 import type { IconNames } from "../../types/icon";

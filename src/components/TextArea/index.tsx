@@ -1,7 +1,7 @@
 "use client";
 
 import { useController } from "react-hook-form";
-import type { Control } from "react-hook-form";
+import type { Control, Path, FieldValues } from "react-hook-form";
 import type { IconNames } from "../../types/icon";
 import { Icon } from "../Icon";
 import {
@@ -12,16 +12,16 @@ import {
   StyledTextArea,
 } from "./styles";
 
-interface TextAreaProps {
+interface TextAreaProps<T extends FieldValues> {
   label?: string;
-  name: string;
+  name: Path<T>;
   placeholder?: string;
   required?: boolean;
   disabled?: boolean;
   icon?: IconNames;
   type: "text" | "email" | "number" | "password" | "search" | "url" | "color";
   size?: "medium" | "large";
-  control: Control<any>;
+  control: Control<T>;
   min?: string;
   autoFocus?: boolean;
   onChange?: () => void;
@@ -29,19 +29,17 @@ interface TextAreaProps {
   variant: "outlined" | "filled";
 }
 
-export const TextArea = ({
+export const TextArea = <T extends FieldValues>({
   label,
   name,
   placeholder,
-  type,
   disabled,
   icon,
   control,
-  min,
   autoFocus,
   onChange,
   rules,
-}: TextAreaProps) => {
+}: TextAreaProps<T>) => {
   const { field, fieldState } = useController({ control, name, rules });
   const { error } = fieldState;
 
@@ -52,7 +50,6 @@ export const TextArea = ({
         {icon && <Icon icon={icon} />}
         <StyledTextArea
           id={name}
-          type={type}
           readOnly={disabled}
           placeholder={placeholder}
           {...field}
@@ -60,7 +57,6 @@ export const TextArea = ({
             field.onChange(e);
             onChange?.();
           }}
-          min={min}
           autoFocus={autoFocus}
           spellCheck="false"
           disabled={disabled}

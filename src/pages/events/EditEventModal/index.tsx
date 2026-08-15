@@ -20,7 +20,7 @@ import { useEffect } from "react";
 interface EditEventModalProps {
   toggleModal: boolean;
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
-  event: Event;
+  event: Event | undefined;
 }
 
 const EditEventModal = ({
@@ -28,7 +28,7 @@ const EditEventModal = ({
   setToggleModal,
   event,
 }: EditEventModalProps) => {
-  const { handleSubmit, control, reset } = useForm({
+  const { control, reset } = useForm({
     defaultValues: {
       name: event?.title,
       description: event?.description,
@@ -95,7 +95,7 @@ const EditEventModal = ({
                 variant="filled"
                 type="number"
                 control={control}
-                name="amount"
+                name="totalAmount"
                 label="Amount (in digits)"
               />
             </EditEventFormGrid>

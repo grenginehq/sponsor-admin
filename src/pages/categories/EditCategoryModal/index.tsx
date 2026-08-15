@@ -16,7 +16,7 @@ import { useEffect } from "react";
 interface EditCategoryModalProps {
   toggleModal: boolean;
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
-  category: Category;
+  category: Category | undefined;
 }
 
 const EditCategoryModal = ({
@@ -24,7 +24,7 @@ const EditCategoryModal = ({
   setToggleModal,
   category,
 }: EditCategoryModalProps) => {
-  const { handleSubmit, control, reset } = useForm({
+  const { control, reset } = useForm({
     defaultValues: {
       name: category?.name,
     },

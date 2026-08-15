@@ -1,4 +1,5 @@
 import { AgGridReact } from "ag-grid-react";
+import type { ColDef } from "ag-grid-community";
 import { useMemo } from "react";
 import * as XLSX from "xlsx";
 
@@ -26,9 +27,10 @@ import {
   StyledDashboard,
   SummaryCardContainer,
 } from "./styles";
+import type { User } from "../../types/user";
 
 export function Dashboard() {
-  const colDefs = useMemo(() => {
+  const colDefs: ColDef<User>[] = useMemo(() => {
     return [
       { field: "name", flex: 1 },
       { field: "email", flex: 1 },
@@ -46,10 +48,8 @@ export function Dashboard() {
     const exportData = topSponsors.map((user) => ({
       Name: user.name,
       Email: user.email,
-      Amount: user.amount,
-      Currency: user.currency,
-      Status: user.status,
-      Date: user.date,
+      CountryCode: user.countryCode,
+      MobileNumber: user.mobileNumber,
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(exportData);
@@ -147,7 +147,7 @@ export function Dashboard() {
             <Tooltip />
             <Area
               type="linear"
-              dataKey="amount"
+              dataKey="totalAmount"
               stroke="#5c247f"
               fillOpacity={1}
               fill="url(#colorAmount)"

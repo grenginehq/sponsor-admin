@@ -15,7 +15,7 @@ import type { Category } from "../../../types/category";
 interface DeleteCategoryModalProps {
   toggleModal: boolean;
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
-  category: Category;
+  category: Category | undefined;
 }
 
 const DeleteCategoryModal = ({

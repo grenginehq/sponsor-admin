@@ -12,13 +12,13 @@ import {
   ViewEventContentRowSubText,
 } from "./styles";
 import { Icon } from "../../../components/Icon";
-import type { Event } from "../../../types/Event";
+import type { Event } from "../../../types/event";
 import { Pill } from "../../../components/Pill";
 
 interface ViewEventModalProps {
   toggleModal: boolean;
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
-  event: Event;
+  event: Event | undefined;
   handleOpenEditEvent: () => void;
   handleOpenDeleteEvent: () => void;
 }

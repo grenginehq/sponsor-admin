@@ -1,10 +1,12 @@
 import { AgGridReact } from "ag-grid-react";
+import type { ColDef } from "ag-grid-community";
 import { useMemo } from "react";
 import * as XLSX from "xlsx";
 
 import { Button } from "../../components/Button";
 import { Sidebar } from "../../components/Sidebar";
 import { users } from "../../constants";
+import type { User } from "../../types/user";
 import {
   UsersButton,
   UsersDescription,
@@ -15,7 +17,7 @@ import {
 } from "./styles";
 
 export function Users() {
-  const colDefs = useMemo(() => {
+  const colDefs: ColDef<User>[] = useMemo(() => {
     return [
       { field: "name", flex: 1 },
       { field: "email", flex: 1 },
@@ -31,10 +33,8 @@ export function Users() {
     const exportData = users.map((user) => ({
       Name: user.name,
       Email: user.email,
-      Amount: user.amount,
-      Currency: user.currency,
-      Status: user.status,
-      Date: user.date,
+      CountryCode: user.countryCode,
+      MobileNumber: user.mobileNumber,
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(exportData);

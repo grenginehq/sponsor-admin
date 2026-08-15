@@ -21,7 +21,7 @@ interface AddEventModalProps {
 }
 
 const AddEventModal = ({ toggleModal, setToggleModal }: AddEventModalProps) => {
-  const { handleSubmit, control } = useForm();
+  const { control } = useForm();
 
   return (
     <>
@@ -66,7 +66,7 @@ const AddEventModal = ({ toggleModal, setToggleModal }: AddEventModalProps) => {
                 variant="filled"
                 type="number"
                 control={control}
-                name="amount"
+                name="totalAmount"
                 label="Amount (in digits)"
               />
             </AddEventFormGrid>

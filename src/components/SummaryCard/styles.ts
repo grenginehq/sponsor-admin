@@ -69,6 +69,6 @@ export const SummaryCardMetricDescription = styled.p`
   gap: 4px;
 `;
 
-export const SummaryCardMetricPercentage = styled.p<{ status: "up" | "down" }>`
+export const SummaryCardMetricPercentage = styled.span<{ status: "up" | "down" }>`
   color: ${({ status }) => (status === "down" ? red03 : green03)};
 `;

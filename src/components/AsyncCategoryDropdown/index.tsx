@@ -9,14 +9,11 @@ import {
   StyledAsyncCategoryDropdown,
 } from "./styles";
 import { secondary01, secondary12 } from "../../styles/abstracts/colors";
+import type { Category } from "../../types/category";
 
 interface CategoryOption {
   label: string;
   value: string;
-}
-
-interface Category {
-  name: string;
 }
 
 interface AsyncCategoryDropdownProps<T extends FieldValues = FieldValues> {
@@ -31,13 +28,10 @@ interface AsyncCategoryDropdownProps<T extends FieldValues = FieldValues> {
 
 const loadOptions: LoadOptions<CategoryOption, any, { page: number }> = async (
   search,
-  loadedOptions,
-  additional,
 ) => {
-  const page = additional?.page ?? 0;
   // const data = await fetchProjects(search, page)
-  const data = [];
-  const categories = data || [];
+  const data: Category[] | [] = [];
+  const categories:  Category[] | [] = data || [];
 
   // Map the nested structure to extract the actual project data
   const options: CategoryOption[] = categories
@@ -104,7 +98,7 @@ const AsyncCategoryDropdown = <T extends FieldValues = FieldValues>({
         placeholder=""
         menuPosition="fixed"
         styles={{
-          control: (base, state) => ({
+          control: (base, _) => ({
             ...base,
             minHeight: 52,
             height: 52,

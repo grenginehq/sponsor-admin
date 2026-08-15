@@ -23,7 +23,6 @@ export function Pagination({
   onPageChange,
   siblingCount = 1,
   boundaryCount = 1,
-  className = "",
 }: PaginationProps) {
   const totalPages = Math.ceil(totalCount / pageSize);
 
